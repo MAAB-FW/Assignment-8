@@ -1,8 +1,11 @@
+import AllBooks from "../../components/AllBooks/AllBooks"
+import Banner from "../../components/Banner/Banner"
 
 const Home = () => {
     return (
         <div>
-            <h2>home</h2>
+            <Banner></Banner>
+            <AllBooks></AllBooks>
         </div>
     )
 }

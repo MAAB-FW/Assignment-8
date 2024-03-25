@@ -56,7 +56,7 @@ const NavBar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to={"/"} className="btn btn-ghost lg:text-[28px]">
+                <Link to={"/"} className="btn btn-ghost lg:text-[28px] text-[#131313]">
                     Book Vibe
                 </Link>
             </div>
