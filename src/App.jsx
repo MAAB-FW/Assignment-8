@@ -1,21 +1,42 @@
 import { createBrowserRouter } from "react-router-dom"
 import Home from "./pages/Home/Home"
 import ErrorPage from "./pages/ErrorPage/ErrorPage"
-import Chart from "./pages/Chart/Chart"
+import Root from "./pages/Root/Root"
+import ListedBooks from "./pages/ListedBooks/ListedBooks"
+import PagesToRead from "./pages/PagesToRead/PagesToRead"
+import ExploreBook from "./pages/ExploreBook/ExploreBook"
+import About from "./pages/About/About"
+import BookDetails from "./pages/BookDetails/BookDetails"
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home></Home>,
+        element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
-                element: <div>ok</div>,
+                element: <Home></Home>,
             },
             {
-                path: "/chart",
-                element: <Chart></Chart>,
+                path: "BookDetails",
+                element: <BookDetails></BookDetails>,
+            },
+            {
+                path: "/ListedBooks",
+                element: <ListedBooks></ListedBooks>,
+            },
+            {
+                path: "/PagesToRead",
+                element: <PagesToRead></PagesToRead>,
+            },
+            {
+                path: "/ExploreBook",
+                element: <ExploreBook></ExploreBook>,
+            },
+            {
+                path: "/About",
+                element: <About></About>,
             },
         ],
     },
