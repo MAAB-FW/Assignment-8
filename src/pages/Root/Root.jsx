@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "../../components/NavBar/NavBar"
+import { Toaster } from "react-hot-toast"
 
 const Root = () => {
     return (
@@ -8,8 +9,8 @@ const Root = () => {
                 <NavBar></NavBar>
                 <Outlet></Outlet>
             </div>
+            <Toaster></Toaster>
         </div>
     )
 }
-
 export default Root

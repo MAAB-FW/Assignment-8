@@ -1,7 +1,12 @@
+import { useEffect } from "react"
 import { IoIosArrowDown } from "react-icons/io"
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink, Outlet, useNavigate } from "react-router-dom"
 
 const ListedBooks = () => {
+    const navigate = useNavigate()
+    useEffect(() => {
+        navigate("/listed-books/read-books")
+    }, [navigate])
     return (
         <div>
             <div className="bg-[#1313130D] flex items-center justify-center text-[28px] font-bold text-[#131313] rounded-2xl h-[100px] mb-8">

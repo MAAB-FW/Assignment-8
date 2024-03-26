@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { getFromLS } from "../../utils/getFromLS"
 import { saveToLS } from "../../utils/saveToLS"
 import { removeFromLs } from "../../utils/removeFromLS"
+import toast from "react-hot-toast"
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -23,37 +24,33 @@ const BookDetails = () => {
     // const [readBooks, setReadBooks] = useState([])
     // const [wishlistBooks, setWishlistBooks] = useState([])
 
-    const handleWishlist = () => {
-        const lWishData = getFromLS("wishlist")
-        const lReadData = getFromLS("read")
-        const readExist = lReadData == bookId
+    const lWishData = getFromLS("wishlist")
+    const lReadData = getFromLS("read")
 
-        if (lWishData || readExist) {
-            alert("Can't add wishlist")
+    console.log(lWishData, lReadData);
+    const wishExist = lWishData.find((data) => data == bookId)
+    const readExist = lReadData.find((data) => data == bookId)
+    // console.log(wishExist);
+
+    const handleWishlist = () => {
+        if (wishExist || readExist) {
+            toast.error("Can't add to wishlist")
         } else {
             saveToLS(bookId, "wishlist")
-            // setWishlistBooks([...wishlistBooks, oneData])
+            toast.success("Successfully add to Wishlist")
         }
-        // console.log("wish ")
     }
     const handleRead = () => {
-        const lReadData = getFromLS("read")
-        const lWishData = getFromLS("wishlist")
-        const wishExist = lWishData == bookId
-
         if (wishExist) {
             removeFromLs(bookId, "wishlist")
-            // const removeFWList = wishlistBooks?.filter((book) => book.bookId != bookId)
-            // setWishlistBooks([...removeFWList])
         }
 
-        if (!lReadData) {
+        if (!readExist) {
             saveToLS(bookId, "read")
-            // setReadBooks([...readBooks, oneData])
+            toast.success("Successfully add to Read List")
         } else {
-            alert("can't add twice")
+            toast.error("Can't add twice")
         }
-        // console.log("read ")
     }
     // console.log("read:", readBooks, "wish:", wishlistBooks)
 

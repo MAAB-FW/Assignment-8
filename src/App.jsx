@@ -10,6 +10,7 @@ import BookDetails from "./pages/BookDetails/BookDetails"
 import NestedReadBooks from "./pages/NestedReadBooks/NestedReadBooks"
 import NestedWishlist from "./pages/NestedWishlist/NestedWishlist"
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -29,12 +30,12 @@ const router = createBrowserRouter([
                 element: <ListedBooks></ListedBooks>,
                 children: [
                     {
-                        path: "/listed-books/read-books",
+                        path: "read-books",
                         index: true,
                         element: <NestedReadBooks></NestedReadBooks>,
                     },
                     {
-                        path: "/listed-books/wishlist-books",
+                        path: "wishlist-books",
                         element: <NestedWishlist></NestedWishlist>,
                     },
                 ],

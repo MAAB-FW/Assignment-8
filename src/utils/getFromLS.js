@@ -1,4 +1,7 @@
 export const getFromLS = (where) => {
     const localData = localStorage.getItem(where)
-    return JSON.parse(localData)
+    if (localData) {
+        return JSON.parse(localData)
+    }
+    return []
 }
