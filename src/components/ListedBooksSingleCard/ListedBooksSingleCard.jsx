@@ -2,6 +2,7 @@ import { RiGroupLine } from "react-icons/ri"
 import { RiPagesLine } from "react-icons/ri"
 import { SlLocationPin } from "react-icons/sl"
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
 
 const ListedBooksSingleCard = ({ book }) => {
     // console.log(data)
@@ -55,6 +56,10 @@ const ListedBooksSingleCard = ({ book }) => {
             </div>
         </div>
     )
+}
+
+ListedBooksSingleCard.propTypes = {
+    book: PropTypes.object,
 }
 
 export default ListedBooksSingleCard

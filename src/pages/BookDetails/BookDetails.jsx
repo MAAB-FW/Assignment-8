@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom"
 import useBooksData from "../../Hooks/useBooksData"
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
 import { useEffect, useState } from "react"
+import { getFromLS } from "../../utils/getFromLS"
+import { saveToLS } from "../../utils/saveToLS"
+import { removeFromLs } from "../../utils/removeFromLS"
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -10,11 +13,49 @@ const BookDetails = () => {
     const [oneData, setOneData] = useState({})
 
     useEffect(() => {
-        const oneBook = data.find((book) => book.bookId === +id)
+        const oneBook = data?.find((book) => book.bookId === +id)
         setOneData(oneBook)
     }, [data, id])
     // console.log(oneData);
-    const { bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } = oneData || {}
+    const { bookId, bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } =
+        oneData || {}
+
+    // const [readBooks, setReadBooks] = useState([])
+    // const [wishlistBooks, setWishlistBooks] = useState([])
+
+    const handleWishlist = () => {
+        const lWishData = getFromLS("wishlist")
+        const lReadData = getFromLS("read")
+        const readExist = lReadData == bookId
+
+        if (lWishData || readExist) {
+            alert("Can't add wishlist")
+        } else {
+            saveToLS(bookId, "wishlist")
+            // setWishlistBooks([...wishlistBooks, oneData])
+        }
+        // console.log("wish ")
+    }
+    const handleRead = () => {
+        const lReadData = getFromLS("read")
+        const lWishData = getFromLS("wishlist")
+        const wishExist = lWishData == bookId
+
+        if (wishExist) {
+            removeFromLs(bookId, "wishlist")
+            // const removeFWList = wishlistBooks?.filter((book) => book.bookId != bookId)
+            // setWishlistBooks([...removeFWList])
+        }
+
+        if (!lReadData) {
+            saveToLS(bookId, "read")
+            // setReadBooks([...readBooks, oneData])
+        } else {
+            alert("can't add twice")
+        }
+        // console.log("read ")
+    }
+    // console.log("read:", readBooks, "wish:", wishlistBooks)
 
     if (loading) {
         return <LoadingSpinner></LoadingSpinner>
@@ -70,8 +111,12 @@ const BookDetails = () => {
                     </table>
                 </div>
                 <div className="flex gap-4 *:rounded-lg *:px-7 *:py-[18px] *:font-semibold *:text-lg">
-                    <button className="border border-[#1313134D]">Read</button>
-                    <button className="bg-[#50B1C9] text-white">Wishlist</button>
+                    <button onClick={handleRead} className="border border-[#1313134D]">
+                        Read
+                    </button>
+                    <button onClick={handleWishlist} className="bg-[#50B1C9] text-white">
+                        Wishlist
+                    </button>
                 </div>
             </div>
         </div>
