@@ -4,7 +4,7 @@ import SingleBookCard from "../SingleBookCard/SingleBookCard"
 
 const AllBooks = () => {
     const { data, loading } = useBooksData()
-    console.log(data)
+    // console.log(data)
     if (loading) {
         return <LoadingSpinner></LoadingSpinner>
     }
