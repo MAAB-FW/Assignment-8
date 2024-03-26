@@ -2,8 +2,9 @@ import { IoStarOutline } from "react-icons/io5"
 import { NavLink } from "react-router-dom"
 
 const SingleBookCard = () => {
+    const id = 5
     return (
-        <NavLink className="flex flex-col jb rounded-2xl p-6 bg-base-100 border ">
+        <NavLink to={`/BookDetails/${id}`} className="flex flex-col jb rounded-2xl p-6 bg-base-100 border ">
             <div className="">
                 <img
                     className="rounded-2xl "
