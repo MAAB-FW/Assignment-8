@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import useBooksData from "../../Hooks/useBooksData"
 
 const BookDetails = () => {
+    const { bookId } = useParams()
+    const { data, loading } = useBooksData()
+    console.log(data)
     return (
         <div className="mb-32 flex gap-12">
             <div className="bg-[#1313130D] rounded-2xl max-w-[573px] flex items-center">
@@ -32,26 +36,28 @@ const BookDetails = () => {
                 </div>
                 <div className="mt-6 mb-8">
                     <table className="text-[#131313] ">
-                        <tr>
-                            <td className="text-[#131313B3]">Number of Pages:</td>
-                            <td className="w-[59px]"></td>
-                            <td className="font-semibold">281</td>
-                        </tr>
-                        <tr>
-                            <td className="text-[#131313B3]">Publisher:</td>
-                            <td className="w-[59px]"></td>
-                            <td className="font-semibold">J.B Lippincott & Co.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-[#131313B3]">Year of Publishing:</td>
-                            <td className="w-[59px]"></td>
-                            <td className="font-semibold">1960</td>
-                        </tr>
-                        <tr>
-                            <td className="text-[#131313B3]">Rating:</td>
-                            <td className="w-[59px]"></td>
-                            <td className="font-semibold">4.8</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td className="text-[#131313B3]">Number of Pages:</td>
+                                <td className="w-[59px]"></td>
+                                <td className="font-semibold">281</td>
+                            </tr>
+                            <tr>
+                                <td className="text-[#131313B3]">Publisher:</td>
+                                <td className="w-[59px]"></td>
+                                <td className="font-semibold">J.B Lippincott & Co.</td>
+                            </tr>
+                            <tr>
+                                <td className="text-[#131313B3]">Year of Publishing:</td>
+                                <td className="w-[59px]"></td>
+                                <td className="font-semibold">1960</td>
+                            </tr>
+                            <tr>
+                                <td className="text-[#131313B3]">Rating:</td>
+                                <td className="w-[59px]"></td>
+                                <td className="font-semibold">4.8</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="flex gap-4 *:rounded-lg *:px-7 *:py-[18px] *:font-semibold *:text-lg">

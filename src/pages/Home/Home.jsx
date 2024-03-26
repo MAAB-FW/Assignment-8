@@ -5,7 +5,10 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <AllBooks></AllBooks>
+            <div className=" mt-[100px]">
+                <h2 className="text-[40px] font-bold text-center mb-10 text-[#131313]">Books</h2>
+                <AllBooks></AllBooks>
+            </div>
         </div>
     )
 }
