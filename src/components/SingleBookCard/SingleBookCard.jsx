@@ -6,18 +6,13 @@ const SingleBookCard = ({ book }) => {
     const { bookId, bookName, author, image, tags, rating, category } = book || {}
 
     return (
-        <Link to={`/book-details/${bookId}`} className="flex flex-col jb rounded-2xl p-6 bg-base-100 border ">
+        <Link to={`/book-details/${bookId}`} className="flex flex-col rounded-2xl p-6 bg-base-100 border ">
             <div className="">
-                {/* <img
-                    className="rounded-2xl "
-                    src="https://img.freepik.com/premium-vector/modern-business-brochure-template_71228-348.jpg?w=740"
-                    alt=""
-                /> */}
                 <img className="rounded-2xl w-[326px] h-[430px] object-center shadow-lg" src={image} alt="" />
             </div>
             <div className="mt-6">
                 <div className="flex gap-3">
-                    {tags.map((tag, idx) => (
+                    {tags?.map((tag, idx) => (
                         <h3 key={idx} className="rounded-full px-4 py-2 bg-[#23BE0A0D] text-[#23BE0A] font-medium">
                             {tag}
                         </h3>

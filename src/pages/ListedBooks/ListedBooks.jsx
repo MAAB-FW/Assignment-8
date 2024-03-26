@@ -27,14 +27,14 @@ const ListedBooks = () => {
                 </ul>
             </div>
             <div>
-                <div className="flex border-[#b2b2b4] *:border-[#b2b2b4] *:rounded-t-lg *:rounded-b-sm *:py-[14px] *:px-[17px] *:text-nowrap">
+                <div className="flex border-[#b2b2b4] *:border-[#b2b2b4] *:rounded-t-lg *:rounded-b-sm *:py-[14px] *:px-[17px] *:text-nowrap *:text-lg">
                     <NavLink
-                        className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b")}
+                        className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b text-[#13131380]")}
                         to={"/listed-books/read-books"}>
                         Read Books
                     </NavLink>
                     <NavLink
-                        className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b")}
+                        className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b text-[#13131380]")}
                         to={"/listed-books/wishlist-books"}>
                         Wishlist Books
                     </NavLink>
