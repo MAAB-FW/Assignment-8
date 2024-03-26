@@ -2,7 +2,6 @@ import { IoIosArrowDown } from "react-icons/io"
 import { NavLink, Outlet } from "react-router-dom"
 
 const ListedBooks = () => {
-
     return (
         <div>
             <div className="bg-[#1313130D] flex items-center justify-center text-[28px] font-bold text-[#131313] rounded-2xl h-[100px] mb-8">

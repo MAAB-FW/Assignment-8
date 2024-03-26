@@ -21,35 +21,35 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 *:my-1 *:text-lg *:text-[#131313CC]">
                         <li>
                             <NavLink
-                                className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                                className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                                 to={"/"}>
                                 Home
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                                className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                                 to={"/listed-books"}>
                                 Listed Books
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                                className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                                 to={"/pages-to-read"}>
                                 Pages to Read
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                                className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                                 to={"/explore-book"}>
                                 Explore Book
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                                className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                                 to={"/about"}>
                                 About
                             </NavLink>
@@ -65,35 +65,35 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal px-1 *:mx-1 *:text-lg *:text-[#131313CC]">
                     <li>
                         <NavLink
-                            className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                            className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                             to={"/"}>
                             Home
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                            className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                             to={"/listed-books"}>
                             Listed Books
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                            className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                             to={"/pages-to-read"}>
                             Pages to Read
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                            className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                             to={"/explore-book"}>
                             Explore Book
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            className={({ isActive }) => isActive && "font-semibold border-[#23BE0A] border text-[#23BE0A]"}
+                            className={({ isActive }) => isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]":""}
                             to={"/about"}>
                             About
                         </NavLink>
