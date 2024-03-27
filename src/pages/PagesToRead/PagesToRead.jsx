@@ -49,6 +49,15 @@ const PagesToRead = () => {
     //         amt: 2100,
     //     },
     // ]
+    if (data.length < 1) {
+        return (
+            <div className="flex flex-col gap-5 items-center justify-center h-96">
+                <p className="text-error text-3xl">Oops!!!</p>
+                <p className="font-semibold text-xl">Read Books are empty</p>
+                <p>Read some books to view the chart</p>
+            </div>
+        )
+    }
     const getPath = (x, y, width, height) => {
         return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
         ${x + width / 2}, ${y}
