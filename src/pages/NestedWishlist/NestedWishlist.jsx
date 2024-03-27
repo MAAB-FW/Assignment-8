@@ -1,14 +1,17 @@
 // import { useEffect, useState } from "react"
 // import useBooksData from "../../Hooks/useBooksData"
 // import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
+import { useOutletContext } from "react-router-dom"
 import ListedBooksSingleCard from "../../components/ListedBooksSingleCard/ListedBooksSingleCard"
-import { getFromLS } from "../../utils/localStorage"
+// import { getFromLS } from "../../utils/localStorage"
 
 const NestedWishlist = () => {
+    const { shortedWishList } = useOutletContext()
     // const { data, loading } = useBooksData()
     // console.log(data)
     // const [listedData, setListedData] = useState([])
-    const localData = getFromLS("wish")
+    // const localData = getFromLS("wish")
+
     // useEffect(() => {
     //     const filterData = data?.filter((book) => book.bookId == "4")
     //     if (filterData) {
@@ -19,7 +22,7 @@ const NestedWishlist = () => {
     // if (loading) {
     //     return <LoadingSpinner></LoadingSpinner>
     // }
-    if (localData.length < 1) {
+    if (shortedWishList.length < 1) {
         return (
             <div className="flex flex-col gap-5 items-center justify-center h-96">
                 <p className="text-error text-3xl">Oops!!!</p>
@@ -29,7 +32,7 @@ const NestedWishlist = () => {
     }
     return (
         <div className="mt-8 mb-32 flex flex-col gap-6">
-            {localData.map((book) => (
+            {shortedWishList.map((book) => (
                 <ListedBooksSingleCard key={book.bookId} book={book}></ListedBooksSingleCard>
             ))}
         </div>

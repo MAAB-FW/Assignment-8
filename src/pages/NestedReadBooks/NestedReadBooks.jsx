@@ -1,15 +1,17 @@
 // import { useEffect, useState } from "react"
+import { useOutletContext } from "react-router-dom"
 import ListedBooksSingleCard from "../../components/ListedBooksSingleCard/ListedBooksSingleCard"
 // import useBooksData from "../../Hooks/useBooksData"
 // import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
-import { getFromLS } from "../../utils/localStorage"
+// import { getFromLS } from "../../utils/localStorage"
 
 const NestedReadBooks = () => {
+    const { shortedReadList } = useOutletContext()
+    // console.log(shortedReadList)
     // const { data, loading } = useBooksData()
-    const localData = getFromLS("read")
+    // const localData = getFromLS("read")
 
     // const [listedData, setListedData] = useState([])
-
     // useEffect(() => {
     //     if (data) {
     //         for (const id of localData) {
@@ -22,7 +24,7 @@ const NestedReadBooks = () => {
     // }, [data, listedData, localData])
     // console.log(localData)
 
-    if (localData.length < 1) {
+    if (shortedReadList.length < 1) {
         return (
             <div className="flex flex-col gap-5 items-center justify-center h-96">
                 <p className="text-error text-3xl">Oops!!!</p>
@@ -33,7 +35,7 @@ const NestedReadBooks = () => {
 
     return (
         <div className="mt-8 mb-32 flex flex-col gap-6">
-            {localData.map((book) => (
+            {shortedReadList.map((book) => (
                 <ListedBooksSingleCard key={book.bookId} book={book}></ListedBooksSingleCard>
             ))}
         </div>
