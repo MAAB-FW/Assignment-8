@@ -6,7 +6,7 @@ const NavBar = () => {
             {/* small */}
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -66,7 +66,7 @@ const NavBar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to={"/"} className="btn btn-ghost lg:text-[28px] text-[#131313]">
+                <Link to={"/"} className="btn btn-ghost lg:text-[28px] text-[#131313] p-0 px-2">
                     Book Vibe
                 </Link>
             </div>

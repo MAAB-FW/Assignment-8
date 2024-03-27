@@ -91,31 +91,33 @@ const BookDetails = () => {
         return <LoadingSpinner></LoadingSpinner>
     }
     return (
-        <div className="mb-32 flex gap-12">
-            <div className="bg-[#1313130D] rounded-2xl max-w-[573px] flex items-center">
-                <img className="w-[425px] lg:h-[564px] shadow-sm" src={image} alt="" />
+        <div className="mb-32 flex flex-col lg:flex-row gap-12">
+            <div className="bg-[#1313130D] rounded-2xl w-full flex justify-center items-center">
+                <img className="w-[80%] lg:w-[425px] rounded-2xl lg:h-[564px] shadow-sm" src={image} alt="" />
             </div>
             <div className="max-w-[549px]">
-                <div className="pb-[22px] border-b">
-                    <h2 className="text-[40px] font-bold text-[#131313] mb-5">{bookName}</h2>
-                    <p className="text-xl font-medium text-[#131313CC] ">By : {author}</p>
+                <div className="pb-3 lg:pb-[22px] border-b">
+                    <h2 className="text-[25px] lg:text-[40px] font-bold text-[#131313] lg:mb-5">{bookName}</h2>
+                    <p className=" lg:text-xl font-medium  text-[#131313CC] ">By : {author}</p>
                 </div>
-                <p className="py-3 text-xl font-medium text-[#131313CC] border-b">{category}</p>
+                <p className="py-2 lg:py-3 lg:text-xl font-medium text-[#131313CC] border-b">{category}</p>
                 <div>
                     <p className="mt-6">
                         <span className="font-bold">Review :</span> {review}
                     </p>
                 </div>
-                <div className="mt-6 py-6 border-b flex items-center gap-4">
+                <div className="mt-3 lg:mt-6 py-3 lg:py-6 border-b flex items-center gap-4">
                     <h3 className="font-bold">Tag</h3>
                     {tags?.map((tag, idx) => (
-                        <h3 key={idx} className="rounded-full px-4 py-2 bg-[#23BE0A0D] text-[#23BE0A] font-medium">
+                        <h3
+                            key={idx}
+                            className="rounded-full text-sm lg:text-base px-2 lg:px-4 py-2 bg-[#23BE0A0D] text-[#23BE0A] font-medium">
                             {tag}
                         </h3>
                     ))}
                 </div>
-                <div className="mt-6 mb-8">
-                    <table className="text-[#131313] ">
+                <div className="mt-3 lg:mt-6 mb-8">
+                    <table className="text-[#131313] *:text-sm *:lg:text-base">
                         <tbody>
                             <tr>
                                 <td className="text-[#131313B3]">Number of Pages:</td>
@@ -140,7 +142,7 @@ const BookDetails = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex gap-4 *:rounded-lg *:px-7 *:py-[18px] *:font-semibold *:text-lg">
+                <div className="flex gap-4 *:rounded-lg *:px-4 *:lg:px-7 *:py-3 *:lg:py-[18px] *:font-semibold *:text-lg">
                     <button onClick={handleRead} className="border border-[#1313134D]">
                         Read
                     </button>

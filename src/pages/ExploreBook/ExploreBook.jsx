@@ -1,13 +1,13 @@
 const ExploreBook = () => {
     return (
         <div className=" flex flex-col justify-start items-start h-[73vh] ">
-            <h2 className="text-4xl animate-pulse font-black pb-2 border-b-4 border-black shadow-xl">
+            <h2 className="text-2xl lg:text-4xl text-center animate-pulse font-black pb-2 border-b-4 border-black shadow-xl">
                 Welcome to Explore Books!
             </h2>
             <div className="w-full">
                 <div className="mt-9 border-b border-gray-500">
                     <h2 className="text-[#23BE0A] font-semibold text-xl">Featured Books:</h2>
-                    <p className="mt-2 text-lg font-medium w-[80%] pb-6 text-[#13131399]">
+                    <p className="mt-2 text-lg font-medium lg:w-[80%] pb-6 text-[#13131399]">
                         Dive into our handpicked selection of featured books, carefully chosen to captivate and inspire readers of
                         all ages. From gripping thrillers to heartwarming tales, each book offers a unique journey into the realms
                         of imagination and creativity.
@@ -37,7 +37,7 @@ const ExploreBook = () => {
                         functionality makes it easy to find exactly what you&apos;re looking for.
                     </p>
                 </div>
-                <p className="mt-8">
+                <p className="py-8">
                     <em>Success is for Book Vibe.</em>
                 </p>
             </div>
