@@ -8,7 +8,7 @@ const NestedWishlist = () => {
     // const { data, loading } = useBooksData()
     // console.log(data)
     // const [listedData, setListedData] = useState([])
-    const localData = getFromLS("read")
+    const localData = getFromLS("wish")
     // useEffect(() => {
     //     const filterData = data?.filter((book) => book.bookId == "4")
     //     if (filterData) {

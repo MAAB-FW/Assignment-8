@@ -5,8 +5,7 @@ import { useEffect, useState } from "react"
 // import { getFromLS } from "../../utils/localStorage"
 // import { saveToLS } from "../../utils/saveToLS"
 // import { removeFromLs } from "../../utils/removeFromLS"
-import toast from "react-hot-toast"
-import { getFromLS, removeFromLs, saveToLS } from "../../utils/localStorage"
+import { saveToLS } from "../../utils/localStorage"
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -19,8 +18,7 @@ const BookDetails = () => {
         setOneData(oneBook)
     }, [data, id])
     // console.log(oneData);
-    const {  bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } =
-        oneData || {}
+    const { bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } = oneData || {}
 
     // const [readBooks, setReadBooks] = useState([])
     // const [wishlistBooks, setWishlistBooks] = useState([])
