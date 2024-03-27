@@ -8,14 +8,14 @@ export const getFromLS = (where) => {
     return books
 }
 
-export const removeFromLs = (book, where) => {
-    const books = getFromLS(where)
-    const index = books.indexOf(book)
-    if (index !== -1) {
-        books.splice(index, 1)
-    }
-    saveToLS(books, where)
-}
+// export const removeFromLs = (book, where) => {
+//     const books = getFromLS(where)
+//     const index = books.indexOf(book)
+//     if (index !== -1) {
+//         books.splice(index, 1)
+//     }
+//     saveToLS(books, where)
+// }
 
 export const saveToLS = (book, where) => {
     const books = getFromLS(where)

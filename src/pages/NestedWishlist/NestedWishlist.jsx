@@ -19,8 +19,13 @@ const NestedWishlist = () => {
     // if (loading) {
     //     return <LoadingSpinner></LoadingSpinner>
     // }
-    if (!localData) {
-        return <div>no data</div>
+    if (localData.length < 1) {
+        return (
+            <div className="flex flex-col gap-5 items-center justify-center h-96">
+                <p className="text-error text-3xl">Oops!!!</p>
+                <p className="font-semibold text-xl">Wishlist are empty</p>
+            </div>
+        )
     }
     return (
         <div className="mt-8 mb-32 flex flex-col gap-6">

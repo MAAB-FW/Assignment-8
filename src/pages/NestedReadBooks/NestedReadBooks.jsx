@@ -20,15 +20,17 @@ const NestedReadBooks = () => {
     //         }
     //     }
     // }, [data, listedData, localData])
-    console.log(localData)
+    // console.log(localData)
 
-    if (!localData) {
-        return <div>no data</div>
+    if (localData.length < 1) {
+        return (
+            <div className="flex flex-col gap-5 items-center justify-center h-96">
+                <p className="text-error text-3xl">Oops!!!</p>
+                <p className="font-semibold text-xl">Read Books are empty</p>
+            </div>
+        )
     }
 
-    // if (loading) {
-    //     return <LoadingSpinner></LoadingSpinner>
-    // }
     return (
         <div className="mt-8 mb-32 flex flex-col gap-6">
             {localData.map((book) => (
