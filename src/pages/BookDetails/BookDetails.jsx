@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom"
 import useBooksData from "../../Hooks/useBooksData"
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
 import { useEffect, useState } from "react"
-import { getFromLS } from "../../utils/getFromLS"
-import { saveToLS } from "../../utils/saveToLS"
-import { removeFromLs } from "../../utils/removeFromLS"
+// import { getFromLS } from "../../utils/localStorage"
+// import { saveToLS } from "../../utils/saveToLS"
+// import { removeFromLs } from "../../utils/removeFromLS"
 import toast from "react-hot-toast"
+import { getFromLS, removeFromLs, saveToLS } from "../../utils/localStorage"
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -18,39 +19,73 @@ const BookDetails = () => {
         setOneData(oneBook)
     }, [data, id])
     // console.log(oneData);
-    const { bookId, bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } =
+    const {  bookName, author, image, tags, rating, category, totalPages, publisher, yearOfPublishing, review } =
         oneData || {}
 
     // const [readBooks, setReadBooks] = useState([])
     // const [wishlistBooks, setWishlistBooks] = useState([])
 
-    const lWishData = getFromLS("wishlist")
-    const lReadData = getFromLS("read")
-
-    console.log(lWishData, lReadData);
-    const wishExist = lWishData.find((data) => data == bookId)
-    const readExist = lReadData.find((data) => data == bookId)
+    // const lWishData = getFromLS("wishlist")
+    // const lReadData = getFromLS("read")
+    // const [existWish, setExistWish] = useState(false)
+    // const [existRead, setExistRead] = useState(false)
+    // console.log(lWishData, lReadData)
+    // const wishExist = lWishData.find((data) => data == bookId)
+    // const readExist = lReadData.find((data) => data == bookId)
     // console.log(wishExist);
-
+    // const [wishlist, setWishlist] = useState(getFromLS("wish"))
+    // const [readList, setReadList] = useState(getFromLS("read"))
+    // console.log("wishlist", wishlist, getFromLS("wish"))
+    // console.log("readList", readList)
+    // let wLExist = wishlist?.find((wl) => wl.bookId == bookId)
+    // let rLExist = readList?.find((rl) => rl.bookId == bookId)
+    // console.log(wishlist[0].bookId, bookId)
+    // console.log(existWish, existRead)
     const handleWishlist = () => {
-        if (wishExist || readExist) {
-            toast.error("Can't add to wishlist")
-        } else {
-            saveToLS(bookId, "wishlist")
-            toast.success("Successfully add to Wishlist")
-        }
+        // if (existWish == false && existRead == false) {
+        saveToLS(oneData, "wish")
+        //     const localWish = getFromLS("wish")
+        //     const isExistWish = localWish.find((w) => w.bookId == bookId)
+        //     if (isExistWish == true) {
+        //         setExistWish(true)
+        //     }
+        // }
+        // const isExist = wishlist.find((w) => w.bookId == bookId)
+        // if (!isExist) {
+        //     setWishlist(...wishlist, oneData)
+        // }
+
+        // if (wishExist || readExist) {
+        //     toast.error("Can't add to wishlist")
+        // } else {
+        //     saveToLS(bookId, "wishlist")
+        //     toast.success("Successfully add to Wishlist")
+        // }
     }
     const handleRead = () => {
-        if (wishExist) {
-            removeFromLs(bookId, "wishlist")
-        }
+        saveToLS(oneData, "read")
+        // const localRead = getFromLS("read")
+        // const isExistRead = localRead.find((w) => w.bookId == bookId)
+        // if (isExistRead == true) {
+        // removeFromLs(oneData,"wish")
+        //     setExistWish(true)
+        //     setExistRead(true)
+        // }
 
-        if (!readExist) {
-            saveToLS(bookId, "read")
-            toast.success("Successfully add to Read List")
-        } else {
-            toast.error("Can't add twice")
-        }
+        // const isExist = readList.find((r) => r.bookId == bookId)
+        // if (!isExist) {
+        //     setReadList(...readList, oneData)
+        // }
+
+        // if (wishExist) {
+        //     removeFromLs(bookId, "wishlist")
+        // }
+        // if (!readExist) {
+        //     saveToLS(bookId, "read")
+        //     toast.success("Successfully add to Read List")
+        // } else {
+        //     toast.error("Can't add twice")
+        // }
     }
     // console.log("read:", readBooks, "wish:", wishlistBooks)
 

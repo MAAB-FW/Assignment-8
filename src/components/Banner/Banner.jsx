@@ -11,8 +11,8 @@ const Banner = () => {
             </div>
             <div>
                 <img
-                    className="lg:w-[318px] w-36 h-40 lg:h-[394px]"
-                    src="https://img.freepik.com/premium-vector/modern-business-brochure-template_71228-348.jpg?w=740"
+                    className="lg:w-[318px] w-36 h-40 lg:h-[394px] bg-[#1313130D] object-contain shadow-xl"
+                    src="https://blog-cdn.reedsy.com/directories/gallery/166/large_2f9efcc5c6b1207ccf5aa5b1e448530f.jpg"
                     alt=""
                 />
             </div>

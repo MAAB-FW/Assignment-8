@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import ListedBooksSingleCard from "../../components/ListedBooksSingleCard/ListedBooksSingleCard"
 import useBooksData from "../../Hooks/useBooksData"
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
-import { getFromLS } from "../../utils/getFromLS"
+import { getFromLS } from "../../utils/localStorage"
 
 const NestedReadBooks = () => {
     const { data, loading } = useBooksData()
