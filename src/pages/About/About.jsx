@@ -1,7 +1,7 @@
 const About = () => {
     return (
         <div className=" flex flex-col justify-start items-center h-[73vh] ">
-            <h2 className="text-4xl animate-pulse font-black pb-2 border-b-4 border-black">About For Book Vibe</h2>
+            <h2 className="text-4xl animate-pulse font-black pb-2 border-b-4 border-black shadow-xl">About For Book Vibe</h2>
             <p className="mt-9 text-lg text-center w-[80%]">
                 To people who value knowledge, Book Vibe is the platform that makes learning anything easy because it transforms
                 the hard-to-understand into easy-to-use. Through expert editorial, engaging experiences and an approachable style,
