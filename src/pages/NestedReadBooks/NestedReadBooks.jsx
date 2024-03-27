@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import ListedBooksSingleCard from "../../components/ListedBooksSingleCard/ListedBooksSingleCard"
-import useBooksData from "../../Hooks/useBooksData"
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
+// import useBooksData from "../../Hooks/useBooksData"
+// import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
 import { getFromLS } from "../../utils/localStorage"
 
 const NestedReadBooks = () => {
-    const { data, loading } = useBooksData()
+    // const { data, loading } = useBooksData()
     const localData = getFromLS("read")
 
-    const [listedData, setListedData] = useState([])
+    // const [listedData, setListedData] = useState([])
 
     // useEffect(() => {
     //     if (data) {
@@ -26,9 +26,9 @@ const NestedReadBooks = () => {
         return <div>no data</div>
     }
 
-    if (loading) {
-        return <LoadingSpinner></LoadingSpinner>
-    }
+    // if (loading) {
+    //     return <LoadingSpinner></LoadingSpinner>
+    // }
     return (
         <div className="mt-8 mb-32 flex flex-col gap-6">
             {localData.map((book) => (

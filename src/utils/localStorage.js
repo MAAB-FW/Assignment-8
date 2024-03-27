@@ -21,17 +21,25 @@ export const saveToLS = (book, where) => {
     const books = getFromLS(where)
     if (where == "wish") {
         const readBooks = getFromLS("read")
-        const isExist = readBooks.find((b) => b.bookId == book.bookId)
-        if (isExist) {
+        const isReadExist = readBooks.find((b) => b.bookId == book.bookId)
+        if (isReadExist) {
             return toast.error("Can't add read book to wishlist")
+        }
+        const isExist = books.find((b) => b.bookId == book.bookId)
+        if (isExist) {
+            return toast.error("Can't add same book to wishlist")
+        } else {
+            books.push(book)
+            localStorage.setItem(where, JSON.stringify(books))
+            return toast.success("Successfully add to Wishlist")
         }
     }
     const isExist = books.find((b) => b.bookId == book.bookId)
     if (isExist) {
-        return toast.error("Can't add same book to wishlist")
+        return toast.error("Can't add same book to Read list")
     } else {
         books.push(book)
         localStorage.setItem(where, JSON.stringify(books))
-        return toast.success("Successfully add to Wishlist")
+        return toast.success("Successfully add to Read list")
     }
 }
