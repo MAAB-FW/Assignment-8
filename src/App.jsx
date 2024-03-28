@@ -4,12 +4,11 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage"
 import Root from "./pages/Root/Root"
 import ListedBooks from "./pages/ListedBooks/ListedBooks"
 import PagesToRead from "./pages/PagesToRead/PagesToRead"
-import ExploreBook from "./pages/ExploreBook/ExploreBook"
 import About from "./pages/About/About"
 import BookDetails from "./pages/BookDetails/BookDetails"
 import NestedReadBooks from "./pages/NestedReadBooks/NestedReadBooks"
 import NestedWishlist from "./pages/NestedWishlist/NestedWishlist"
-
+import ContactUs from "./pages/ContactUs/ContactUs"
 
 const router = createBrowserRouter([
     {
@@ -45,8 +44,8 @@ const router = createBrowserRouter([
                 element: <PagesToRead></PagesToRead>,
             },
             {
-                path: "/explore-book",
-                element: <ExploreBook></ExploreBook>,
+                path: "/contact-us",
+                element: <ContactUs></ContactUs>,
             },
             {
                 path: "/about",
