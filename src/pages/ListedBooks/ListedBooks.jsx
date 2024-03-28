@@ -18,24 +18,23 @@ const ListedBooks = () => {
     // }, [])
 
     const handleShorted = (shorter) => {
+        const readGet = getFromLS("read")
+        const wishListGet = getFromLS("wish")
         if (shorter === "rating") {
-            // console.log(shorter)
-            const ratingReadShorted = shortedReadList.sort((a, b) => b.rating - a.rating)
-            const ratingWishShorted = shortedWishList.sort((a, b) => b.rating - a.rating)
-            setShortedReadList(ratingReadShorted)
-            setShortedWishList(ratingWishShorted)
+            const readShorted = readGet.sort((a, b) => b.rating - a.rating)
+            const wishShorted = wishListGet.sort((a, b) => b.rating - a.rating)
+            setShortedReadList(readShorted)
+            setShortedWishList(wishShorted)
         } else if (shorter === "numOfPages") {
-            // console.log(shorter)
-            const ratingReadShorted = shortedReadList.sort((a, b) => b.totalPages - a.totalPages)
-            const ratingWishShorted = shortedWishList.sort((a, b) => b.totalPages - a.totalPages)
-            setShortedReadList(ratingReadShorted)
-            setShortedWishList(ratingWishShorted)
+            const readShorted = readGet.sort((a, b) => b.totalPages - a.totalPages)
+            const wishShorted = wishListGet.sort((a, b) => b.totalPages - a.totalPages)
+            setShortedReadList(readShorted)
+            setShortedWishList(wishShorted)
         } else if (shorter === "publisherYear") {
-            // console.log(shorter)
-            const ratingReadShorted = shortedReadList.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
-            const ratingWishShorted = shortedWishList.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
-            setShortedReadList(ratingReadShorted)
-            setShortedWishList(ratingWishShorted)
+            const readShorted = readGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+            const wishShorted = wishListGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+            setShortedReadList(readShorted)
+            setShortedWishList(wishShorted)
         }
     }
 
