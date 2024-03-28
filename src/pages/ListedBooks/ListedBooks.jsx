@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { IoIosArrowDown } from "react-icons/io"
 import { NavLink, Outlet, useNavigate } from "react-router-dom"
 import { getFromLS } from "../../utils/localStorage"
+import { listSortByTabName } from "../../utils/listSortByTabName"
 
 const ListedBooks = () => {
     const navigate = useNavigate()
@@ -16,26 +17,35 @@ const ListedBooks = () => {
     // useEffect(() => {
     // setShortedList(readBooks)
     // }, [])
+    const [tab, setTab] = useState("read")
 
     const handleShorted = (shorter) => {
-        const readGet = getFromLS("read")
-        const wishListGet = getFromLS("wish")
-        if (shorter === "rating") {
-            const readShorted = readGet.sort((a, b) => b.rating - a.rating)
-            const wishShorted = wishListGet.sort((a, b) => b.rating - a.rating)
-            setShortedReadList(readShorted)
-            setShortedWishList(wishShorted)
-        } else if (shorter === "numOfPages") {
-            const readShorted = readGet.sort((a, b) => b.totalPages - a.totalPages)
-            const wishShorted = wishListGet.sort((a, b) => b.totalPages - a.totalPages)
-            setShortedReadList(readShorted)
-            setShortedWishList(wishShorted)
-        } else if (shorter === "publisherYear") {
-            const readShorted = readGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
-            const wishShorted = wishListGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
-            setShortedReadList(readShorted)
-            setShortedWishList(wishShorted)
+        if (tab === "wish") {
+            const wishSort = listSortByTabName("wish", shorter)
+            setShortedWishList(wishSort)
+        } else {
+            const readSort = listSortByTabName("read", shorter)
+            setShortedReadList(readSort)
         }
+
+        // const readGet = getFromLS("read")
+        // const wishListGet = getFromLS("wish")
+        // if (shorter === "rating") {
+        //     const readShorted = readGet.sort((a, b) => b.rating - a.rating)
+        //     const wishShorted = wishListGet.sort((a, b) => b.rating - a.rating)
+        //     setShortedReadList(readShorted)
+        //     setShortedWishList(wishShorted)
+        // } else if (shorter === "numOfPages") {
+        //     const readShorted = readGet.sort((a, b) => b.totalPages - a.totalPages)
+        //     const wishShorted = wishListGet.sort((a, b) => b.totalPages - a.totalPages)
+        //     setShortedReadList(readShorted)
+        //     setShortedWishList(wishShorted)
+        // } else if (shorter === "publisherYear") {
+        //     const readShorted = readGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+        //     const wishShorted = wishListGet.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing)
+        //     setShortedReadList(readShorted)
+        //     setShortedWishList(wishShorted)
+        // }
     }
 
     return (
@@ -65,11 +75,13 @@ const ListedBooks = () => {
             <div>
                 <div className="flex border-[#b2b2b4] *:border-[#b2b2b4] *:rounded-t-lg *:rounded-b-sm *:py-[14px] *:px-[17px] *:text-nowrap *:text-lg">
                     <NavLink
+                        onClick={() => setTab("read")}
                         className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b text-[#13131380]")}
                         to={"/listed-books/read-books"}>
                         Read Books
                     </NavLink>
                     <NavLink
+                        onClick={() => setTab("wish")}
                         className={({ isActive }) => (isActive ? "border-x border-t border-b-0" : "border-b text-[#13131380]")}
                         to={"/listed-books/wishlist-books"}>
                         Wishlist Books
