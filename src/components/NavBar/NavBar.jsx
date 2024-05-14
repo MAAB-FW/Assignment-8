@@ -33,7 +33,7 @@ const NavBar = () => {
                                 className={({ isActive }) =>
                                     isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]" : ""
                                 }
-                                to={"/listed-books"}>
+                                to={"/listed-books/read-books"}>
                                 Listed Books
                             </NavLink>
                         </li>
@@ -83,7 +83,7 @@ const NavBar = () => {
                     <li>
                         <NavLink
                             className={({ isActive }) => (isActive ? "font-semibold border-[#23BE0A] border text-[#23BE0A]" : "")}
-                            to={"/listed-books"}>
+                            to={"/listed-books/read-books"}>
                             Listed Books
                         </NavLink>
                     </li>

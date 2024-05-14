@@ -37,9 +37,14 @@ export const saveToLS = (book, where) => {
     const isExist = books.find((b) => b.bookId == book.bookId)
     if (isExist) {
         return toast.error("Can't add same book to Read list")
-    } else {
-        books.push(book)
-        localStorage.setItem(where, JSON.stringify(books))
-        return toast.success("Successfully add to Read list")
     }
+    const wishBooks = getFromLS("wish")
+    const isWishExist = wishBooks.find((b) => b.bookId == book.bookId)
+    if (isWishExist) {
+        const removeExist = wishBooks.filter((wb) => wb.bookId != book.bookId)
+        localStorage.setItem("wish", JSON.stringify(removeExist))
+    }
+    books.push(book)
+    localStorage.setItem(where, JSON.stringify(books))
+    return toast.success("Successfully add to Read list")
 }
